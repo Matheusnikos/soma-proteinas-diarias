@@ -1,0 +1,84 @@
+import 'dart:io';
+
+/*
+1. Receber proteína animal, vegetal e cereal OK
+2. Executar o fator de correção OK
+3. Somar as três proteínas OK
+4. Dividir pelo peso
+*/
+
+main() {
+  String nome = pegarNome();
+
+  num peso = pegarPeso();
+
+  num proteinaAnimal = pegarProteinaAnimal();
+  num proteinaVegetal = pegarProteinaVegetal();
+  num proteinaCereal = pegarProteinaCereal();
+
+/*print('Proteina animal de $proteinaAnimal' 'g');
+print('Proteina Vegetal de $proteinaVegetal' 'g');
+print('Proteina Cereal de $proteinaCereal' 'g');*/
+
+  num somaProteinas = (proteinaAnimal + proteinaVegetal + proteinaCereal);
+
+  print('Paciente: $nome');
+  print('Peso: $peso' 'kg');
+
+  print('Quantidade total de proteínas absorvidas: $somaProteinas' 'g');
+
+  num somaProteinasgk =
+      (proteinaAnimal + proteinaVegetal + proteinaCereal) / peso;
+
+  print('Quantidade total de proteínas absorvidas em g/kg $somaProteinasgk');
+}
+
+pegarNome() {
+  print('Olá! Qual o seu nome?');
+  String? nomeString = stdin.readLineSync();
+  if (nomeString == null) {
+    return 0.0;
+  } else {
+    return nomeString;
+  }
+}
+
+pegarPeso() {
+  print('Digite seu peso');
+  String? pesoString = stdin.readLineSync();
+  if (pesoString == null) {
+    return 0.0;
+  } else {
+    return num.parse(pesoString);
+  }
+}
+
+pegarProteinaAnimal() {
+  print('Insira a quantidade de proteína animal');
+  String? proteinaAnimalString = stdin.readLineSync();
+  if (proteinaAnimalString == null) {
+    return 0.0;
+  } else {
+    return num.parse(proteinaAnimalString) * 0.7;
+  }
+}
+
+pegarProteinaVegetal() {
+  print('Insira a quantidade de proteína Vegetal');
+  String? proteinaVegetalString = stdin.readLineSync();
+  if (proteinaVegetalString == null) {
+    return 0.0;
+  } else {
+    return num.parse(proteinaVegetalString) * 0.6;
+  }
+}
+
+pegarProteinaCereal() {
+  print('Insira a quantidade de proteína Cereal');
+  String? proteinaCerealString = stdin.readLineSync();
+  if (proteinaCerealString == null) {
+    return 0.0;
+  } else {
+    return num.parse(proteinaCerealString) * 0.5;
+  }
+}
