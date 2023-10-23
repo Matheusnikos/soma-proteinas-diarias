@@ -8,28 +8,29 @@ import 'dart:io';
 */
 
 main() {
+  print("\x1B[2J\x1B[0;0H");
   String nome = pegarNome();
+  print("\x1B[2J\x1B[0;0H");
 
   num peso = pegarPeso();
+  print("\x1B[2J\x1B[0;0H");
 
   num proteinaAnimal = pegarProteinaAnimal();
-  num proteinaVegetal = pegarProteinaVegetal();
+  print("\x1B[2J\x1B[0;0H");
+
+  num proteinaLeguminosa = pegarProteinaLeguminosa();
+  print("\x1B[2J\x1B[0;0H");
+
   num proteinaCereal = pegarProteinaCereal();
+  print("\x1B[2J\x1B[0;0H");
 
-/*print('Proteina animal de $proteinaAnimal' 'g');
-print('Proteina Vegetal de $proteinaVegetal' 'g');
-print('Proteina Cereal de $proteinaCereal' 'g');*/
+  num somaProteinas = (proteinaAnimal + proteinaLeguminosa + proteinaCereal);
+  num somaProteinasgk = (proteinaAnimal + proteinaLeguminosa + proteinaCereal) / peso;
 
-  num somaProteinas = (proteinaAnimal + proteinaVegetal + proteinaCereal);
-
-  print('Paciente: $nome');
+  print('Nome: $nome');
   print('Peso: $peso' 'kg');
 
   print('Quantidade total de proteínas absorvidas: $somaProteinas' 'g');
-
-  num somaProteinasgk =
-      (proteinaAnimal + proteinaVegetal + proteinaCereal) / peso;
-
   print('Quantidade total de proteínas absorvidas em g/kg $somaProteinasgk');
 }
 
@@ -63,13 +64,13 @@ pegarProteinaAnimal() {
   }
 }
 
-pegarProteinaVegetal() {
-  print('Insira a quantidade de proteína Vegetal');
-  String? proteinaVegetalString = stdin.readLineSync();
-  if (proteinaVegetalString == null) {
+pegarProteinaLeguminosa() {
+  print('Insira a quantidade de proteína Leguminosa');
+  String? proteinaLeguminosaString = stdin.readLineSync();
+  if (proteinaLeguminosaString == null) {
     return 0.0;
   } else {
-    return num.parse(proteinaVegetalString) * 0.6;
+    return num.parse(proteinaLeguminosaString) * 0.6;
   }
 }
 
